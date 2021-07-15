@@ -14,7 +14,10 @@ let mockUserData =[
 ]
 
 // NEW USERS MOCK JSON DATA
-let newUserData =[
+let newUserData =[ 
+    {name: randomString()},
+    {name: randomString()},
+    {name: randomString()}
 ]
 
 // GET USERS 
@@ -29,13 +32,30 @@ app.get('/users', function(req, res){
 
 // ADD NEW USERS
 app.get('/newusers', function(req, res){
+    randomString();
     console.log("New users locked in!");
+    res.json({
+        success: true,
+        message: 'new users locked in!',
+        users: newUserData
+    })
 })
 
 
 
 
 // RANDOM STRING FUNCTION
+function randomString(length) {
+    let result = '';
+    let characters = 'abcdefghijklmnopqrstuvwxyz';
+    let charactersLength = characters.length;
+    for (let i = 0; i < length; i++) {
+        result += characters.charAt(Math.random() * charactersLength);
+    }
+    console.log(result);
+    return result;
+}
+
 
 // APP LISTENING AND TALKING
 app.listen(8000, function(){
