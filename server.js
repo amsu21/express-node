@@ -15,7 +15,7 @@ let mockUserData =[
 
 // NEW USERS MOCK JSON DATA
 let newUserData =[ 
-    {name: randomString()}
+    randomString()
 ]
 
 // GET USERS 
