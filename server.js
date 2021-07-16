@@ -28,6 +28,12 @@ app.get('/users', function(req, res){
     })
 })
 
+// GET USERS BY ID
+app.get('/users/:id', function(req, res) {
+    console.log(req.params.id)
+    res.json({ success: true, message: 'got a user!', user: req.params.id})
+})
+
 // ADD NEW USERS
 app.get('/newusers', function(req, res){
     randomString();
